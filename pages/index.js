@@ -1,4 +1,3 @@
-// @ts-check
 import Header from '../components/Header';
 import PrimaryButton from '../components/PrimaryButton';
 

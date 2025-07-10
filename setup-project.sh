@@ -3,12 +3,32 @@
 # Install dependencies
 npm install next react react-dom prisma @prisma/client eslint eslint-plugin-import
 
-# Initialize Prisma
-npx prisma init
+# Create valid Prisma schema
+cat > prisma/schema.prisma <<EOF
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("student")
+  createdAt DateTime @default(now())
+}
+EOF
+
+# Generate Prisma client
+npx prisma generate
 
 # Create home page
 cat > pages/index.js <<EOF
-// @ts-check
 import Header from '../components/Header';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -29,7 +49,6 @@ EOF
 
 # Create test page
 cat > pages/test-error.js <<EOF
-// @ts-check
 export default function ErrorTestPage() {
   console.log("Valid log");
   console.logg("Invalid log - should show error");
@@ -41,6 +60,9 @@ export default function ErrorTestPage() {
   );
 }
 EOF
+
+# Create .env file
+echo "DATABASE_URL=\"mysql://user:password@localhost:3306/mydb\"" > .env
 
 echo "✅ Project setup complete!"
 echo "Next:"

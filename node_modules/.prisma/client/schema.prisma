@@ -15,14 +15,3 @@ model User {
   role      String   @default("student")
   createdAt DateTime @default(now())
 }
-
-model SriLankanDesign {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  category    String
-  imageUrl    String
-  tags        String
-  downloads   Int      @default(0)
-  createdAt   DateTime @default(now())
-}
