@@ -1,0 +1,13 @@
+{
+  "editor.fontSize": 16,
+  "editor.lineHeight": 26,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "files.autoSave": "afterDelay",
+  "editor.renderWhitespace": "boundary",
+  "workbench.colorTheme": "Default Light Modern",
+  "errorLens.enabled": true
+}
