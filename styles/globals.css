@@ -1,0 +1,306 @@
+*{
+  background-color: #000000;
+}
+
+body{
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-orbitron), var(--font-space-mono), monospace;
+  overflow-x: hidden;
+}
+
+.crt-screen {
+  position: relative;
+  background: radial-gradient(ellipse at center, rgba(255,255,0,0.02) 0%, #000 100%);
+  border-radius: 15px;
+  border: 3px solid #333;
+  box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.2);
+  animation: screen-flicker 4s infinite;
+}
+.crt-screen::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,0,0.05) 2px,
+    rgba(255,255,0,0.05) 4px
+  );
+  pointer-events: none;
+  border-radius: 12px;
+}
+@keyframes screen-flicker {
+  0%, 90%, 100% { opacity: 1; }
+  91%, 93%, 95%, 97%, 99% { opacity: 0.95; }
+  92%, 94%, 96%, 98% { opacity: 0.98; }
+}
+
+/* HEADER */
+.header {
+  background: rgba(0,0,0,0.8);
+  border-bottom: 2px solid #333;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  text-shadow: 0 0 8px #e6e6e4, 0 0 16px #333;
+  margin: 0;
+}
+
+.title:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px #ffffff, 0 0 24px #fff;
+  filter: blur(0.1px);
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #ffffff, 0 0 16px #333;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.nav-list a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px #ffffff, 0 0 24px #fff;
+  filter: blur(0.5px);
+}
+
+.container-footer {
+  background: rgba(0,0,0,0.8);
+  border-top: 2px solid #333;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.footer {
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.9rem;
+  text-shadow: 0 0 8px #e6e6e4, 0 0 16px #333;
+}
+.footer p {
+  margin: 0;
+}
+
+/* INDEX */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Orbitron', monospace;;
+  padding: 2rem 0;
+}
+
+.profile-picture {
+  width: 500px;
+  height: 700px;
+  border-radius: 1%;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px #ffffff, 0 0 40px #333 inset;
+  filter: grayscale(80%) contrast(120%) drop-shadow(0 0 10px #ffffff);
+  image-rendering: pixelated;
+}
+
+.about-me, .view-projects, .contact-me {
+  background: #222;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ffffff;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.about-me{
+  align-items: center;
+}
+
+.about-me:hover, .view-projects:hover, .contact-me:hover {
+  box-shadow: 0 0 16px #ffffff, 0 0 32px #fff;
+}
+
+/* ABOUT-ME */
+
+.about-content {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Orbitron', monospace;
+}
+
+.skills {
+  margin: 2rem 0;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 12px #ffffff;
+  padding: 1rem;
+}
+
+.skills h3 {
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  margin-bottom: 1rem;
+}
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.skills li {
+  background: #222;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 8px #ffffff;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.skills li:hover {
+  box-shadow: 0 0 16px #ffffff, 0 0 32px #fff;
+}
+
+.projects-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.project-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.project-list a {
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #ffffff, 0 0 16px #333;
+  background: #222;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 8px #ffffff;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.project-list a:hover {
+    box-shadow: 0 0 16px #ffffff, 0 0 32px #ffffff;
+}
+
+.contact-content {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Orbitron', monospace;
+}
+
+.contact-info, .contact-details, .social-media {
+  margin: 1.5rem 0;
+}
+
+.contact-form {
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 12px #ffffff;
+  padding: 1rem;
+  margin: 2rem 0;
+  display: inline-block;
+}
+
+.contact-form label {
+  display: block;
+  margin: 1rem 0 0.5rem 0;
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  background: #222;
+  color: #ffffff;
+  font-family: 'Orbitron', monospace;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.contact-form button {
+  background: #222;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ffffff;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form button:hover {
+  background: #ffffff;
+  color: #222;
+  box-shadow: 0 0 16px #ffffff, 0 0 32px #fff;
+}
+
+.social-media a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #ffffff, 0 0 16px #333;
+  margin: 0 1rem;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.social-media a:hover {
+  color: #fff;
+  text-shadow: 0 0 12px #ffffff, 0 0 24px #fff;
+  filter: blur(0.5px);
+}
